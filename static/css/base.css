@@ -1,0 +1,127 @@
+
+.table-box-content {
+  border: 1px solid #eeeeee;
+  overflow-y: auto;
+}
+.el-submenu__title,.el-menu-item,.el-breadcrumb__inner{
+    color: #515a6e;
+}
+.el-breadcrumb__inner a, .el-breadcrumb__inner.is-link{
+    font-weight: initial;
+}
+.el-pagination {
+  padding: 50px 0;
+  text-align: center;
+}
+
+/* 修改按钮样式 */
+.operate-group .item {
+  display: inline;
+}
+
+.operate-group {
+  display: flex;
+  justify-content: space-around;
+}
+
+.el-button--mini {
+  padding: 7px 10px;
+}
+
+/* 修改input宽度 */
+.search_box {
+  text-align: right;
+}
+
+.search_box .el-form-item__content {
+  width: 140px;
+}
+
+.el-table__header thead tr th {
+  padding: 5px 0;
+  background: #f8f8f9;
+}
+
+.el-dropdown-link {
+  color: #ffffff;
+}
+
+.el-breadcrumb {
+  margin-bottom: 30px;
+}
+
+.el-table{
+    font-size: 12px;
+}
+.el-table thead{
+    color: #515a6e;
+    font-weight: 400;
+}
+.el-button{
+    font-weight: initial;
+}
+.el-upload__tip{
+  line-height: 20px;
+}
+.el-dialog__wrapper{
+  min-width: 1200px;
+}
+.el-upload-list__item{
+  background: #f5f7fa;
+  outline: none;
+}
+.el-upload-list__item .el-icon-close{
+  display: block;
+}
+.el-aside{
+  border-right: solid 1px #e6e6e6;
+}
+.table-box .el-textarea .el-textarea__inner{
+  min-height: 500px !important;
+  max-height: 500px !important;
+}
+.edit_text .el-textarea .el-textarea__inner{
+  min-height: 300px !important;
+  max-height: 300px !important;
+}
+.res_wid .el-form-item__content{
+  width: 90px;
+}
+.res_wid1 .el-form-item__content{
+  width: 140px;
+}
+.res_wid2 .el-form-item__content{
+  width: 106px;
+}
+.res_wid .el-form-item__label{
+  font-size: 12px;
+  padding: 0 5px 0 0;
+}
+.res_wid1 .el-form-item__label{
+  font-size: 12px;
+  padding: 0 5px 0 0;
+}
+.res_wid2 .el-form-item__label{
+  font-size: 12px;
+  padding: 0 5px 0 0;
+}
+.ser_text .el-form-item__content{
+  margin-left: 0 !important;
+}
+.ser_text .el-textarea__inner{
+  min-height: 300px !important;
+  max-height: 300px !important;
+}
+
+.ver_text1 .el-input{
+  width: 44.4%;
+}
+.ver_text2 .el-input{
+  width: 30%;
+}
+.el-form-item--mini.el-form-item{
+  margin-bottom: 15px;
+}
+.ma15{
+  margin-bottom: 15px;
+}
