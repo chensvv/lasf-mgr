@@ -107,6 +107,7 @@ export default {
           prop: "platform",
           label: "客户端版本",
           align: "center",
+          width: 110,
           hasSort:true
         },
         {
@@ -125,6 +126,7 @@ export default {
           prop: "vdm",
           label: "唤醒词类型",
           align: "center",
+          width:110,
           hasSort:true
         },
         {

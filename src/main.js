@@ -5,7 +5,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import Itf from './utils/interface'
 
 Vue.config.productionTip = false
 
@@ -18,9 +17,11 @@ Vue.use(ElementUI)
 import axios from 'axios'
 Vue.prototype.$http = axios
 
+import Itf from './utils/interface'
 Vue.prototype.$util = Itf.INTERCHILD
 
 import '../mock/mock.js'
+import '../static/css/base.css'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -30,9 +31,3 @@ new Vue({
   },
   template: '<App/>'
 })
-// router.beforeEach((to, from, next) => {
-//   if (to.meta.title) {
-//     console.log(to.meta.title)
-//     document.title = to.meta.title
-//   }
-// })

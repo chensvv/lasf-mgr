@@ -84,7 +84,6 @@ export default {
         },{
           prop:"state",
           label: "是否别名",
-          width:100,
           align: "center",
           hasSort:true,
           render: (h, params) => {
@@ -103,7 +102,6 @@ export default {
         },{
           prop:"state",
           label: "是否索引",
-          width:100,
           align: "center",
           hasSort:true,
           render: (h, params) => {
@@ -118,7 +116,6 @@ export default {
           prop:"putTime",
           label: "更新时间",
           align: "center",
-          width:150,
           hasSort:true,
           render: (h, params)=>{
             var timer = parseInt(params.row.refreshTime)
@@ -135,7 +132,6 @@ export default {
         border:false     //是否显示纵向边框
       },
       operates: {
-        width: 200,
         show: false,
         list: [
           {
