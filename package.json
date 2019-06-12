@@ -1,8 +1,8 @@
 {
   "name": "lasf-mgr",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "bu <2193249607@qq.com>",
+  "description": "A lasf-mgr project",
+  "author": "陈嘉圣 <chenjs9@lenovo.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

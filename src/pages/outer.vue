@@ -45,52 +45,52 @@
         <el-dialog title="详情" :visible.sync="infoVisible" width="300" :before-close="infoHandleClose">
             <el-form :label-position="'left'" label-width="100px">
                 <el-form-item label="用户ID">
-                <el-input type="text" v-model="infoItem.yhID" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.yhID" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="设备类型">
-                <el-input type="text" v-model="infoItem.sblx" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.sblx" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="会话ID">
-                <el-input type="text" v-model="infoItem.hhID" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.hhID" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="来源类型">
-                <el-input type="text" v-model="infoItem.lylx" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.lylx" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="请求内容">
-                <el-input type="textarea" v-model="infoItem.qqnr" auto-complete="off"></el-input>
+                <el-input type="textarea" v-model="infoItem.qqnr" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="响应头部信息">
-                <el-input type="textarea" v-model="infoItem.xytbxx" auto-complete="off"></el-input>
+                <el-input type="textarea" v-model="infoItem.xytbxx" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="响应内容">
-                <el-input type="textarea" v-model="infoItem.xynr" auto-complete="off"></el-input>
+                <el-input type="textarea" v-model="infoItem.xynr" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="请求消耗时间">
-                <el-input type="text" v-model="infoItem.qqxhsj" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.qqxhsj" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="接口名称">
-                <el-input type="text" v-model="infoItem.jkmc" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.jkmc" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="接口路径">
-                <el-input type="text" v-model="infoItem.jklj" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.jklj" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="响应状态">
-                <el-input type="text" v-model="infoItem.xyzt" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.xyzt" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="错误信息">
-                <el-input type="text" v-model="infoItem.cwxx" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.cwxx" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="三方名称">
-                <el-input type="text" v-model="infoItem.sfmc" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.sfmc" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="入库时间">
-                <el-input type="text" v-model="infoItem.rksj" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.rksj" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="解析领域">
-                <el-input type="text" v-model="infoItem.jxly" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.jxly" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="用户指令">
-                <el-input type="text" v-model="infoItem.yhzl" auto-complete="off"></el-input>
+                <el-input type="text" v-model="infoItem.yhzl" auto-complete="off" readonly></el-input>
                 </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">

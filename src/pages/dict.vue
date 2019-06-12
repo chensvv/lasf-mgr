@@ -160,7 +160,7 @@ export default {
                 border:false     //是否显示纵向边框
             },
             operates: {
-                width: 120,
+                width: 150,
                 show: false,
                 list: [
                     {
