@@ -5,7 +5,7 @@
         </el-breadcrumb>
         <div class="a_alert">
             <i class="el-icon-info"></i>
-            <span class="alert_main">应用记录今天更新了 <span class="num">{{num}}</span> 条</span>
+            <span class="alert_main">应用记录今天更新了<countTo :startVal='startVal' :endVal='endVal' :duration='3000'></countTo> 条</span>
         </div>
         <div>
             <img src="https://wpimg.wallstcn.com/0e03b7da-db9e-4819-ba10-9016ddfdaed3" class="img">
@@ -13,22 +13,14 @@
     </div>
 </template>
 <script>
-import Count from '../utils/count'
+import countTo from 'vue-count-to';
 export default {
+    components: { countTo },
     data(){
         return{
-            num:1024
+            startVal:0,
+            endVal:1024
         }
-    },
-    mounted(){
-        Count({
-            end:this.num,
-            limitTime:2000,  //指定时间
-            // interval:1, //指定速度
-            callback:(num) => {
-                this.num = num
-            }
-        })
     }
 }
 </script>
@@ -37,6 +29,9 @@ export default {
     width: 45%;
     display: block;
     margin: 10px auto 0;
+}
+.el-main{
+    background: #e3e3e3 !important;
 }
 </style>
 

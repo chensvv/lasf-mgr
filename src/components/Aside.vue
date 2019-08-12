@@ -8,9 +8,8 @@
         <el-submenu index="1">
             <template slot="title">
                 <i class="el-icon-date"></i>
-                <span>数据管理</span>
+                <span>应用搜索</span>
             </template>
-
             <el-menu-item index="/home/appList">
                 <i class="el-icon-goods"></i>
                 <span>应用列表</span>
@@ -27,33 +26,27 @@
                 <i class="el-icon-goods"></i>
                 <span>应用缓存</span>
             </el-menu-item>
+        </el-submenu>
+        <el-submenu index="2">
+            <template slot="title">
+                <i class="el-icon-date"></i>
+                <span>闲聊数据</span>
+            </template>
             <el-menu-item index="/home/was">
                 <i class="el-icon-tickets"></i>
-                <span>网站导航数据</span>
+                <span>网站导航</span>
             </el-menu-item>
             <el-menu-item index="/home/dict">
                 <i class="el-icon-tickets"></i>
-                <span>热词表</span>
+                <span>热词列表</span>
             </el-menu-item>
             <el-menu-item index="/home/csc">
                 <i class="el-icon-service"></i>
                 <span>常用服务电话</span>
             </el-menu-item>
-            <el-menu-item index="/home/qa">
-                <i class="el-icon-tickets"></i>
-                <span>定制问答</span>
-            </el-menu-item>
-            <el-menu-item index="/home/rule">
-                <i class="el-icon-tickets"></i>
-                <span>小不点规则设置</span>
-            </el-menu-item>
-            <el-menu-item index="/home/grey">
-                <i class="el-icon-tickets"></i>
-                <span>灰度发布</span>
-            </el-menu-item>
             <el-menu-item index="/home/chat">
                 <i class="el-icon-tickets"></i>
-                <span>闲聊上报数据</span>
+                <span>闲聊数据上报</span>
             </el-menu-item>
             <el-menu-item index="/home/joke">
                 <i class="el-icon-tickets"></i>
@@ -65,11 +58,28 @@
             </el-menu-item>
             <el-menu-item index="/home/trigger">
                 <i class="el-icon-tickets"></i>
-                <span>唤醒词</span>
+                <span>语音唤醒</span>
             </el-menu-item>
         </el-submenu>
-
-        <el-submenu index="2">
+        <el-submenu index="3">
+            <template slot="title">
+                <i class="el-icon-date"></i>
+                <span>规则定义</span>
+            </template>
+            <el-menu-item index="/home/qa">
+                <i class="el-icon-tickets"></i>
+                <span>定制问答/说法增设</span>
+            </el-menu-item>
+            <el-menu-item index="/home/rule">
+                <i class="el-icon-tickets"></i>
+                <span>小不点规则设置</span>
+            </el-menu-item>
+            <el-menu-item index="/home/grey">
+                <i class="el-icon-tickets"></i>
+                <span>灰度发布</span>
+            </el-menu-item>
+        </el-submenu>
+        <el-submenu index="4">
             <template slot="title">
                 <i class="el-icon-date"></i>
                 <span>LASF KV</span>
@@ -91,13 +101,21 @@
                 <i class="el-icon-document"></i>
                 <span>技能配置信息</span>
             </el-menu-item>
+            <el-menu-item index="/home/video">
+                <i class="el-icon-document"></i>
+                <span>技能视频管理</span>
+            </el-menu-item>
+            <el-menu-item index="/home/singer">
+                <i class="el-icon-document"></i>
+                <span>音乐歌手管理</span>
+            </el-menu-item>
         </el-submenu>
 
         <el-menu-item index="/home/setting">
             <i class="el-icon-setting"></i>
 			<span>设置</span>
         </el-menu-item>
-    </el-menu>    
+    </el-menu>
 </template>
 
 <script>

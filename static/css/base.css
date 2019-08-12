@@ -1,4 +1,7 @@
 
+.el-dialog__wrapper{
+  min-width: 1200px;
+}
 .table-box-content {
   border: 1px solid #eeeeee;
   overflow-y: auto;
@@ -30,16 +33,31 @@
 .el-button--mini {
   padding: 7px 10px;
 }
-
+.reg .cell{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /* 修改input宽度 */
-.search_box {
+.search_box,.cache,.outer {
   text-align: right;
 }
-
+.search_box .el-form-item .el-form-item__label,.outer .el-form-item .el-form-item__label,.trigger .el-form-item .el-form-item__label{
+  font-size: 12px;
+  padding: 0 5px 0 0;
+}
 .search_box .el-form-item__content {
   width: 140px;
 }
-
+.cache .el-form-item__content,.trigger .el-form-item__content {
+  width: 130px;
+}
+.width140 .el-form-item__content{
+  width: 140px !important;
+}
+.outer .el-form-item__content {
+  width: 110px;
+}
 .el-table__header thead tr th {
   padding: 5px 0;
   background: #f8f8f9;
@@ -66,9 +84,7 @@
 .el-upload__tip{
   line-height: 20px;
 }
-.el-dialog__wrapper{
-  min-width: 1200px;
-}
+
 .el-upload-list__item{
   background: #f5f7fa;
   outline: none;
@@ -90,24 +106,6 @@
 .res_wid .el-form-item__content{
   width: 90px;
 }
-.res_wid1 .el-form-item__content{
-  width: 140px;
-}
-.res_wid2 .el-form-item__content{
-  width: 106px;
-}
-.res_wid .el-form-item__label{
-  font-size: 12px;
-  padding: 0 5px 0 0;
-}
-.res_wid1 .el-form-item__label{
-  font-size: 12px;
-  padding: 0 5px 0 0;
-}
-.res_wid2 .el-form-item__label{
-  font-size: 12px;
-  padding: 0 5px 0 0;
-}
 .ser_text .el-form-item__content{
   margin-left: 0 !important;
 }
@@ -115,7 +113,10 @@
   min-height: 300px !important;
   max-height: 300px !important;
 }
-
+.ser_t .el-textarea__inner{
+  min-height: 300px !important;
+  max-height: 300px !important;
+}
 .ver_text1 .el-input{
   width: 44.4%;
 }
@@ -143,6 +144,40 @@
   padding-left: 5px;
   letter-spacing: 1px;
 }
-.alert_main .num{
+.alert_main span{
   font-size: 16px;
+}
+.el-input__inner,.el-textarea__inner{
+  padding: 0 10px;
+}
+.downloadFile{
+  text-decoration: none;
+    padding: 3px 10px;
+    display: inline-block;
+    border: 1px solid #DCDFE6;
+    color: #606266;
+    border-radius: 3px;
+    touch-action: none;
+}
+.downloadFile:hover{
+  color: #409EFF;
+  border-color: #c6e2ff;
+  background-color: #ecf5ff;
+}
+.downloadFile:active{
+  color: #3a8ee6;
+  border-color: #3a8ee6;
+  outline: 0;
+}
+.downloadFile::after{
+  content:'下载文件';
+}
+.login-box .el-form-item.is-required:not(.is-no-asterisk)>.el-form-item__label:before{
+  content:'' !important;
+}
+.el-form-item.is-success .el-input__inner{
+  border: 1px solid #DCDFE6;
+}
+.el-form-item.is-success .el-input__inner:focus{
+  border-color: #409EFF;
 }

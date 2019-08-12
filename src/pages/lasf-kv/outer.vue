@@ -2,36 +2,49 @@
     <div class="table">
         <el-breadcrumb separator="/">
             <el-breadcrumb-item :to="{ path: '/'}">首页</el-breadcrumb-item>
-            <el-breadcrumb-item>数据管理</el-breadcrumb-item>
+            <el-breadcrumb-item>LASF KV</el-breadcrumb-item>
             <el-breadcrumb-item v-for="(item,index) in $route.meta" :key="index">{{item}}</el-breadcrumb-item>
         </el-breadcrumb>
         
-        <el-form :inline="true" ref="searchItem" :model="searchItem" class="demo-form-inline search_box" size="mini">
-            <el-form-item label="用户ID" prop="mobile_num" class="res_wid">
-                <el-input v-model="searchItem.mobile_num"></el-input>
+        <el-form :inline="true" ref="searchItem" :model="searchItem" class="demo-form-inline outer" size="mini">
+            <el-form-item label="用户ID" prop="userId">
+                <el-input v-model="searchItem.userId" clearable></el-input>
             </el-form-item>
-            <el-form-item label="用户指令" prop="zhil" class="res_wid">
-                <el-input v-model="searchItem.zhil"></el-input>
+            <el-form-item label="用户指令" prop="domain">
+                <el-input v-model="searchItem.domain" clearable></el-input>
             </el-form-item>
-            <el-form-item label="解析领域" prop="lingy" class="res_wid">
-                <el-input v-model="searchItem.lingy"></el-input>
+            <el-form-item label="解析领域" prop="domain">
+                <el-input v-model="searchItem.domain" clearable></el-input>
             </el-form-item>
-            <el-form-item label="响应状态" prop="state" class="res_wid">
-                <el-input v-model="searchItem.state"></el-input>
+            <el-form-item label="响应状态" prop="respstatus">
+                <el-select v-model="searchItem.respstatus" placeholder="--" clearable>
+                    <el-option label="联想" value="联想"></el-option>
+                    <el-option label="百度" value="百度"></el-option>
+                </el-select>
             </el-form-item>
-            <el-form-item label="开始时间" prop="refreshTime" class="res_wid1">
-                <el-date-picker type="date" placeholder="选择日期" v-model="searchItem.refreshTime" style="width: 100%;"></el-date-picker>
+            <el-form-item label="开始时间" prop="refreshTime" class="width140">
+                <el-date-picker 
+                    type="date" 
+                    placeholder="选择日期" 
+                    v-model="searchItem.refreshTime" 
+                    style="width: 100%;"
+                    value-format="yyyy-MM-dd"></el-date-picker>
             </el-form-item>
-            <el-form-item label="结束时间" prop="putTime" class="res_wid1">
-                <el-date-picker type="date" placeholder="选择日期" v-model="searchItem.putTime" style="width: 100%;"></el-date-picker>
+            <el-form-item label="结束时间" prop="putTime" class="width140">
+                <el-date-picker 
+                    type="date" 
+                    placeholder="选择日期" 
+                    v-model="searchItem.putTime" 
+                    style="width: 100%;"
+                    value-format="yyyy-MM-dd"></el-date-picker>
             </el-form-item>
-            <el-form-item  class="res_wid2">
-                <el-button type="primary" @click="onSubmit">查询</el-button>
+            <el-form-item class="width140">
+                <el-button type="primary" @click="onSubmit" :loading="seaBtnLoading">查询</el-button>
                 <el-button @click="resetForm('searchItem')">重置</el-button>
             </el-form-item>
         </el-form>
         <div class="table-box">
-            <i-table :list="list.slice((currentPage-1)*pageSize,currentPage*pageSize)" :options="options" :columns="columns" :operates="operates"></i-table>
+            <i-table :list="list" :options="options" :columns="columns" :operates="operates"></i-table>
             <el-pagination
                 @size-change="handleSizeChange"
                 @current-change="handleCurrentChange"
@@ -45,52 +58,52 @@
         <el-dialog title="详情" :visible.sync="infoVisible" width="300" :before-close="infoHandleClose">
             <el-form :label-position="'left'" label-width="100px">
                 <el-form-item label="用户ID">
-                <el-input type="text" v-model="infoItem.yhID" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.uid" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="设备类型">
-                <el-input type="text" v-model="infoItem.sblx" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.sblx" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="会话ID">
-                <el-input type="text" v-model="infoItem.hhID" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.hhID" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="来源类型">
-                <el-input type="text" v-model="infoItem.lylx" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.lylx" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="请求内容">
-                <el-input type="textarea" v-model="infoItem.qqnr" auto-complete="off" readonly></el-input>
+                <el-input type="textarea" v-model="infoList.content" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="响应头部信息">
-                <el-input type="textarea" v-model="infoItem.xytbxx" auto-complete="off" readonly></el-input>
+                <el-input type="textarea" v-model="infoList.responseHeader" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="响应内容">
-                <el-input type="textarea" v-model="infoItem.xynr" auto-complete="off" readonly></el-input>
+                <el-input type="textarea" v-model="infoList.xynr" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="请求消耗时间">
-                <el-input type="text" v-model="infoItem.qqxhsj" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.qqxhsj" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="接口名称">
-                <el-input type="text" v-model="infoItem.jkmc" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.jkmc" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="接口路径">
-                <el-input type="text" v-model="infoItem.jklj" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.jklj" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="响应状态">
-                <el-input type="text" v-model="infoItem.xyzt" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.xyzt" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="错误信息">
-                <el-input type="text" v-model="infoItem.cwxx" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.cwxx" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="三方名称">
-                <el-input type="text" v-model="infoItem.sfmc" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.outerType" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="入库时间">
-                <el-input type="text" v-model="infoItem.rksj" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.displayTime" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="解析领域">
-                <el-input type="text" v-model="infoItem.jxly" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.jxly" auto-complete="off" readonly></el-input>
                 </el-form-item>
                 <el-form-item label="用户指令">
-                <el-input type="text" v-model="infoItem.yhzl" auto-complete="off" readonly></el-input>
+                <el-input type="text" v-model="infoList.yhzl" auto-complete="off" readonly></el-input>
                 </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">
@@ -102,74 +115,70 @@
 
 <script>
 import iTable from "@/components/table";
-import {formatDate} from '@/utils/format.js'
+import {checkTime} from '@/utils/timer.js'
+import {outerList, outerInfo} from '@/config/api'
 export default {
     name: "applicationlist",
     components: { iTable },
     data() {
         return {
             list: [],
-            searchItem:{},
-            infoItem: {//修改数据组
+            searchItem:{
+                userId:"",
+                domain:"",
+                domain:"",
+                respstatus:"",
+                refreshTime:"",
+                putTime:""
             },
+            infoList:[],
             columns: [
                 {
-                    prop:"index",
-                    label: "序号",
-                    align: "center",
-                    hasSort:true
-                },
-                {
-                    prop: "mobile_num",
+                    prop: "uid",
                     label: "用户ID",
                     align: "center",
                     hasSort:true
                 },
                 {
-                    prop: "biem",
+                    prop: "asrres",
                     label: "用户指令",
                     align: "center",
                     hasSort:true
                 },
                 {
-                    prop: "biem",
+                    prop: "domain",
                     label: "解析领域",
                     align: "center",
                     hasSort:true
                 },
                 {
-                    prop: "biem",
+                    prop: "respstatus",
                     label: "响应状态",
                     align: "center",
                     hasSort:true
                 },
                 {
-                    prop: "was_from",
+                    prop: "outerType",
                     label: "三方名称",
                     align: "center",
                     hasSort:true
                 },
                 {
-                    prop: "biem",
+                    prop: "protname",
                     label: "接口名称",
                     align: "center",
                     hasSort:true
                 },
                 {
-                    prop: "refreshTime",
+                    prop: "displayTime",
                     label: "时间",
                     align: "center",
                     hasSort:true,
-                    render: (h, params)=>{
-                        var timer = parseInt(params.row.refreshTime)
-                        return h('span',
-                        formatDate(new Date(timer), 'yyyy-MM-dd hh:mm'))
-                    }
                 }
             ],
             options: {
                 stripe: false, // 是否为斑马纹 table
-                loading: true, // 是否添加表格loading加载动画
+                loading: false, // 是否添加表格loading加载动画
                 highlightCurrentRow: false, // 是否支持当前行高亮显示
                 mutiSelect: false, // 是否支持列表项选中功能
                 border:false     //是否显示纵向边框
@@ -193,9 +202,10 @@ export default {
             infoVisible: false,
             // 分页
             currentPage: 1, //默认显示第几页
-            pageSize: 10,   //默认每页条数
+            pageSize: 30,   //默认每页条数
             pageSizes:[10, 20, 30],
-            totalCount:1     // 总条数
+            totalCount:1,     // 总条数
+            seaBtnLoading:false,
         };
     },
     created() {
@@ -204,9 +214,13 @@ export default {
     methods: {
         resetForm(formName) {
             this.$refs[formName].resetFields();
+            this.getList()
         },
         onSubmit(){
             console.log(this.searchItem)
+            this.seaBtnLoading = true
+            this.getList()
+            this.seaBtnLoading = false
         },
         handleSizeChange(val) {
             this.pageSize = val;
@@ -216,29 +230,18 @@ export default {
         handleCurrentChange(val) {
             this.currentPage = val
             console.log(`当前页: ${val}`);
-            // this.getList();
+            this.getList();
         },
         handleInfo(index, row) {
-            console.log(index, row);
+            
             this.infoVisible = true;
-            this.infoItem = {
-                yhID:row.mobile_num,
-                sblx:row.biem,
-                hhID:row.biem,
-                lylx:row.biem,
-                qqnr:row.cost,
-                xytbxx:row.platform,
-                xynr:row.biem,
-                qqxhsj:row.biem,
-                jkmc:row.biem,
-                jklj:row.biem,
-                xyzt:row.biem,
-                cwxx:row.biem,
-                sfmc:row.was_from,
-                rksj:row.refreshTime,
-                jxly:row.biem,
-                yhzl:row.biem
-            };
+            let infoParams = {
+                id:row.id
+            }
+            outerInfo(infoParams).then(res=>{
+                this.infoList = res.data
+                console.log(this.infoList)
+            })
         },
         infoHandleConfirm() {
             this.infoVisible = false;
@@ -247,16 +250,19 @@ export default {
             this.infoVisible = false;
         },
         getList() {
-            this.$http.get("/api/data").then(res => {
-                this.list = res.data;
-                res.data.forEach(item => {
-                item.index = item.id % this.pageSize;
-                    if(item.index == 0){
-                        item.index = this.pageSize
-                    }
-                });
-                this.totalCount = this.list.length
-                this.options.loading = false;
+            let params = {
+                pgstr:this.currentPage,
+                pcstr:this.pageSize,
+                userId:this.searchItem.userId,
+                asrres:this.searchItem.asrres,
+                domain:this.searchItem.domain,
+                respstatus:this.searchItem.respstatus,
+                startStr:this.searchItem.refreshTime,
+                endStr:this.searchItem.putTime
+            }
+            outerList(params).then(res => {
+                this.list = res.data.data;
+                this.totalCount = res.data.count
             });
         }
     }

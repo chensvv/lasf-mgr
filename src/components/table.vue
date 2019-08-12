@@ -13,13 +13,18 @@
   </el-table-column> -->
   <!--endregion-->
   <!--region 数据列-->
+  <el-table-column type="index">
+      
+    </el-table-column>
   <template v-for="(column, index) in columns">
+    
   <el-table-column :prop="column.prop"
        :key='column.key'
        :label="column.label"
        :align="column.align"
        :width="column.width"
-       :sortable="column.hasSort">
+       :sortable="column.hasSort"
+       :class-name="column.className">
    <template slot-scope="scope">
    <template v-if="!column.render">
     <template v-if="column.formatter">
